@@ -11,9 +11,6 @@
      style="width:40px; height:40px;">
 
 <iframe src="https://mcp-testing-airflow.s3.ap-south-1.amazonaws.com/invoice_management.html">
-</iframe>
-
-[Open Invoice Management](https://mcp-testing-airflow.s3.ap-south-1.amazonaws.com/invoice_management.html)
 
 
-![screenshot from 2017-11-25 21-43-02](https://user-images.githubusercontent.com/1908863/33236942-aa809c1c-d229-11e7-9c4b-9a680fd852ed.png)
+
