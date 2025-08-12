@@ -10,9 +10,7 @@
      alt="SIYA" 
      style="width:40px; height:40px;">
 
-<iframe src="https://mcp-testing-airflow.s3.ap-south-1.amazonaws.com/invoice_management.html" 
-        width="800" 
-        height="600">
+<iframe src="https://mcp-testing-airflow.s3.ap-south-1.amazonaws.com/invoice_management.html">
 </iframe>
 
 [Open Invoice Management](https://mcp-testing-airflow.s3.ap-south-1.amazonaws.com/invoice_management.html)
