@@ -22,8 +22,14 @@
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}]});"></script>
 
   <style>
+    #markdownContainer iframe {
+      width: 100%;
+      min-height: 600px;
+      border: 1px solid #ddd;
+      overflow: auto;
+    }
     :root{
-      --bg:#fdfdf7; --muted:#6b7280; --panel:#fdfdf7; --accent:#2563eb;
+      --bg:#fdfdf7; --muted:#6b7280; --panel:#fdfdf7; --accent:#0a1121;
       --nav-text:#3e3e3e; --heading:#171717;
       --sidebar-w:300px; --radius:10px; --gap:18px;
     }
@@ -51,7 +57,29 @@
     .nav{flex:1;overflow:auto;padding:12px 8px}
     .nav .section-title{font-size:12px;color:var(--muted);margin:12px 12px 6px}
     .nav a{display:block;padding:10px 16px;border-radius:8px;color:var(--nav-text);text-decoration:none;margin:6px 8px;font-size:15px;font-family: Styrene, Inter, ui-sans-serif, system-ui, -apple-system}
-    .nav a.active{background:rgba(79,70,229,0.08);border-left:3px solid var(--accent);font-weight:600}
+    .nav a.active {
+      background-color: #e5e7eb;
+      color: #111;
+      border-left: 3px solid var(--accent);
+      font-weight: 600;
+    }
+    .sidebar a {
+      font-size: 13px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.4;
+      padding: 4px 8px;
+      display: block;
+      color: #374151;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .sidebar a:hover {
+      background-color: #f3f4f6;
+    }
+    .sidebar a.active {
+      background-color: #e5e7eb;
+      font-weight: 700;
+    }
     .nav .folder-block{margin:6px 0}
     .nav .folder-row{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;margin:6px 8px;user-select:none;justify-content:flex-start;background:var(--panel)}
 .nav .folder-row .caret{cursor:pointer;padding:4px 8px;}
@@ -158,7 +186,7 @@
       --bg:#111827;
       --muted:#94a3b8;
       --panel:#1f2937;
-      --accent:#3b82f6;
+      --accent:#22514e08;
       --text:#f3f4f6;
       --nav-text:#f3f4f6;
       --heading:#f3f4f6;
@@ -197,6 +225,73 @@
     html.dark .brand .hamburger{background:#0b1320;border-color:#1e293b;color:#cbd5e1}
     html.dark .brand .hamburger:hover{background:rgba(255,255,255,0.06)}
     html.dark .brand .hamburger:focus{box-shadow:0 0 0 2px rgba(148,163,184,.35)}
+    .doc-footer-nav {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid #e5e7eb;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .doc-footer-nav > * {
+      width: 100%;
+      padding: 12px 0;
+    }
+    .doc-footer-nav > *:not(:last-child) {
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .feedback {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .feedback-btn {
+      background: transparent;
+      border: 1px solid #d1d5db;
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .feedback-btn:hover {
+      background: #f9fafb;
+    }
+    .nav-links {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .nav-links a {
+      color: var(--nav-text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+    .footer-github {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .footer-github img {
+      width: 40px;
+      height: 40px;
+      opacity: 0.8;
+      transition: opacity 0.2s ease;
+    }
+    .footer-github img:hover {
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
@@ -204,8 +299,8 @@
     <nav class="sidebar" aria-label="Documentation navigation">
       <div class="brand">
         <a class="brand-left" href="/docWebpage/index.html" title="Back to home">
-            <img class="logo" src="https://framerusercontent.com/images/LrRLCKdv11JOhOBWDM42mp4F6CQ.png" alt=" logo" aria-hidden="true">
-            <h1>SIYA</h1>
+            <img class="logo" src="https://framerusercontent.com/images/ilrJtcE6bZ33SbecrZl2vqXa7w.png?scale-down-to=512" alt=" logo" aria-hidden="true">
+            <!-- <h1>SIYA</h1> -->
         </a>
         <button id="collapseBtn" type="button" class="hamburger" title="Toggle sidebar">≡</button>
       </div>
@@ -215,7 +310,7 @@
     <main class="main">
       <div class="topbar">
         <div class="left-actions">
-          <div class="title" id="pageTitle">SIYA Documentation</div>
+          <div class="title">SIYA Documentation</div>
         </div>
         <div class="top-search" role="search">
           <div class="searchbox">
@@ -241,6 +336,22 @@
               </div>
             </div>
             <article id="content" class="markdown-body">Loading...</article>
+            <div class="doc-footer-nav">
+              <div class="feedback">
+                <span>Was this page helpful?</span>
+                <button class="feedback-btn" data-feedback="yes">👍 Yes</button>
+                <button class="feedback-btn" data-feedback="no">👎 No</button>
+              </div>
+              <div class="nav-links">
+                <a id="prevPage" href="#"><span>← </span><strong id="prevTitle"></strong></a>
+                <a id="nextPage" href="#"><strong id="nextTitle"></strong><span> →</span></a>
+              </div>
+              <div class="footer-github">
+                <a id="footerGitLink" href="#" target="_blank" title="View this page on GitHub">
+                  <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub logo">
+                </a>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -269,6 +380,17 @@
   </div>
 
 <script>
+// Marked.js options: allow HTML and set recommended options
+marked.setOptions({
+  gfm: true,
+  breaks: true,
+  headerIds: true,
+  mangle: false,
+  headerPrefix: '',
+  smartLists: true,
+  smartypants: false,
+  xhtml: false
+});
 // ========== CONFIG ==========
 const repo = 'syia-ai/siya-public-documentation';
 let branch = 'main';
@@ -292,6 +414,8 @@ const copyMdBtn = document.getElementById('copyMd');
 const toggleRawBtn = document.getElementById('toggleRaw');
 
 let files = []; // {name, path, raw_url, title}
+// Recommended files: will be set after files are loaded (see bootstrap)
+let recommendedFiles = [];
 let tree = null; // folder structure
 let cache = {}; // path -> {md, html, headings}
 let isRawView = false;
@@ -315,28 +439,27 @@ async function fetchDirContents(dirPath=""){
   const res = await fetch(url);
   if(!res.ok) throw new Error('Failed to list repo contents');
   const data = await res.json();
-  // Sort directories then files, both alphabetically
-  data.sort((a,b)=>{
-    if(a.type!==b.type){ return a.type==='dir' ? -1 : 1; }
-    return a.name.localeCompare(b.name);
-  });
+  // NOTE: Do not sort here; preserve GitHub API order
   return data;
 }
 
 async function buildTree(dirPath=""){
   const entries = await fetchDirContents(dirPath);
   const node = { name: dirPath || "root", path: dirPath, type: 'dir', children: [] };
-  const dirs = entries.filter(e=>e.type==='dir');
-  const docs = entries.filter(e=>e.type==='file' && /\.(md|tex|pdf)$/i.test(e.name));
-  // push files first in alphabetical order
-  for(const e of docs){
-    const fileObj = {name:e.name, path:e.path, raw_url:`${rawBase}${branch}/${e.path}`};
-    files.push(fileObj);
-    node.children.push({ name: e.name, path: e.path, type: 'file' });
+  // Preserve order: add files and dirs as they appear in entries
+  for(const e of entries){
+    if(e.type === 'file' && /\.(md|tex|pdf)$/i.test(e.name)){
+      if (e.name.toLowerCase() !== 'readme.md') {
+        const fileObj = {name:e.name, path:e.path, raw_url:`${rawBase}${branch}/${e.path}`};
+        files.push(fileObj);
+        node.children.push({ name: e.name, path: e.path, type: 'file' });
+      }
+    } else if(e.type === 'dir'){
+      // fetch subdir and push it in order
+      const st = await buildTree(e.path);
+      node.children.push(st);
+    }
   }
-  // fetch subdirectories concurrently for speed
-  const subtrees = await Promise.all(dirs.map(d=>buildTree(d.path)));
-  for(const st of subtrees){ node.children.push(st); }
   return node;
 }
 
@@ -347,9 +470,6 @@ async function fetchMarkdown(path){
   const res = await fetch(file.raw_url);
   if(!res.ok) throw new Error('Failed to fetch file');
   const md = await res.text();
-    const renderer = new marked.Renderer();
-    renderer.html = function(html) { return html; };
-    marked.setOptions({ renderer, gfm: true, breaks: true, mangle: false, headerIds: true });
   // preprocess to support MDX-like <Frame> wrappers or images shown inside code blocks
   function preprocessMarkdown(source){
     let s = source;
@@ -369,12 +489,16 @@ async function fetchMarkdown(path){
           return imgs.map(tag=>`<div class=\"frame\">${tag}</div>`).join('\n');
         }
       }
+      // Render other safe HTML fragments that sometimes appear fenced in the docs
+      if(/<\s*(iframe|video|figure|table|section|article)[\s>]/i.test(code)){
+        return code.trim();
+      }
       return match; // leave normal code blocks untouched
     });
     return s;
   }
   const mdProcessed = preprocessMarkdown(md);
-  // marked options already set above with renderer
+  // marked options already set above globally
   // parse headings using marked lexer
   const isTex = /\.tex$/i.test(file.name);
   const isPdf = /\.pdf$/i.test(file.name);
@@ -401,7 +525,7 @@ async function fetchMarkdown(path){
   } else {
     const tokens = marked.lexer(mdProcessed);
     headings = tokens.filter(t=>t.type==='heading' && t.depth<=2).map(h=>({text:h.text, depth:h.depth}));
-    html = marked.parse(mdProcessed, {mangle:false, headerIds:true});
+    html = marked.parse(mdProcessed);
     // add subtle container similar to Anthropic docs
     html = `<div style="max-width:840px;margin:0 auto">${html}</div>`;
   }
@@ -423,9 +547,12 @@ function renderNavTree(node, depth=0){
     if(child.type==='dir'){
       html += renderNavTree(child, depth+1);
     } else {
-      // show only leaf name, not full path
-      const leaf = child.name.split('/').pop();
-      html += `<div class="${indentClass}"><a href="#" data-path="${child.path}">${niceTitle(leaf)}</a></div>`;
+      // Exclude README.md from navigation
+      if(child.name.toLowerCase() !== 'readme.md') {
+        // show only leaf name, not full path
+        const leaf = child.name.split('/').pop();
+        html += `<div class="${indentClass}"><a href="#" data-path="${child.path}">${niceTitle(leaf)}</a></div>`;
+      }
     }
   }
   if(node.path!=='' && node.type==='dir'){
@@ -440,6 +567,23 @@ function renderNavFromTree(){
     navList.innerHTML = '<div style="padding:12px;color:#6b7280">No documents found.</div>';
     return;
   }
+  // --- Begin Vessel Report/FAQ.md order enforcement ---
+  // Only adjust the root-level children array
+  const rootChildren = tree.children;
+  // Move Introduction.md to the top of the list
+  const introIndex = rootChildren.findIndex(item => item.type === 'file' && item.name.toLowerCase() === 'introduction.md');
+  if (introIndex > 0) {
+    const [introItem] = rootChildren.splice(introIndex, 1);
+    rootChildren.unshift(introItem);
+  }
+  const vrIndex = rootChildren.findIndex(item => item.type === 'dir' && item.name.toLowerCase() === 'vessel report');
+  const faqIndex = rootChildren.findIndex(item => item.type === 'file' && item.name.toLowerCase() === 'faq.md');
+  if (vrIndex !== -1 && faqIndex !== -1 && faqIndex < vrIndex) {
+    const [faqItem] = rootChildren.splice(faqIndex, 1);
+    rootChildren.splice(vrIndex + 1, 0, faqItem);
+  }
+  // --- End Vessel Report/FAQ.md order enforcement ---
+  // Do NOT sort after this adjustment, to preserve GitHub order.
   const html = renderNavTree(tree, 0);
   navList.innerHTML = `<div style="padding:8px">${html}</div>`;
   // wire folder toggles
@@ -448,6 +592,12 @@ function renderNavFromTree(){
     const body = document.getElementById(target);
     const caret = row.querySelector('.caret');
     if(caret){
+      // ensure all folders are collapsed by default
+      if(body) body.style.display = 'none';
+      row.classList.add('collapsed');
+      // If <details> element is ever used, ensure .open = false
+      // (not used in HTML here, but for future-proofing)
+      // If you switch to <details>, set detailsEl.open = false;
       caret.addEventListener('click', (e)=>{
         e.stopPropagation();
         const collapsed = row.classList.toggle('collapsed');
@@ -495,6 +645,41 @@ function slug(text){
 
 let currentPath = null;
 
+function updatePrevNextLinks(path) {
+  const index = files.findIndex(f => f.path === path);
+  const prev = files[index - 1];
+  const next = files[index + 1];
+
+  const prevLink = document.getElementById('prevPage');
+  const nextLink = document.getElementById('nextPage');
+  const prevTitle = document.getElementById('prevTitle');
+  const nextTitle = document.getElementById('nextTitle');
+
+  if (prev) {
+    prevLink.style.display = 'inline-flex';
+    prevLink.dataset.path = prev.path;
+    prevTitle.textContent = niceTitle(prev.name);
+  } else {
+    prevLink.style.display = 'none';
+  }
+
+  if (next) {
+    nextLink.style.display = 'inline-flex';
+    nextLink.dataset.path = next.path;
+    nextTitle.textContent = niceTitle(next.name);
+  } else {
+    nextLink.style.display = 'none';
+  }
+}
+
+document.addEventListener('click', async (e) => {
+  if (e.target.closest('#prevPage') || e.target.closest('#nextPage')) {
+    e.preventDefault();
+    const path = e.target.closest('a').dataset.path;
+    if (path) await openDoc(path);
+  }
+});
+
 async function openDoc(path){
   currentPath = path;
   // Update folder display inside panel only; keep header as just brand
@@ -504,14 +689,110 @@ async function openDoc(path){
   document.querySelector('.folder-display').textContent = folderName;
   if(folderCrumb){ folderCrumb.textContent = ''; }
   openOnGit.href = `https://github.com/${repo}/blob/${branch}/${path}`;
+  // --- Set the markdown viewer's top title/breadcrumb as per the new logic ---
+  const filePath = path;
+  {
+    const parts = filePath.split('/');
+    let displayTitle;
+    if (parts.length === 1) {
+      // Root-level file: only show filename without .md
+      displayTitle = parts[0].replace(/\.md$/i, '');
+    } else {
+      // Show folder / filename without .md
+      displayTitle = parts.slice(-2).join(' / ').replace(/\.md$/i, '');
+    }
+    // Find the element to set. Try id="docTitle" first, fallback to #pageTitle if needed.
+    const docTitleEl = document.getElementById('docTitle') || document.getElementById('pageTitle');
+    if (docTitleEl) docTitleEl.textContent = displayTitle;
+  }
   contentEl.innerHTML = '<div style="padding:20px;color:#6b7280">Loading document…</div>';
   try{
+    // If the file is markdown, render using marked.parse to allow HTML
+    const file = files.find(f=>f.path===path);
+    if (file && /\.md$/i.test(file.name)) {
+      // Fetch and render markdown using marked with HTML allowed
+      const mdContent = await fetch(file.raw_url).then(res => res.text());
+      // Preprocess as in fetchMarkdown
+      let s = mdContent;
+      s = s.replace(/<\s*Frame\s*>/gi, '<div class="frame">')
+           .replace(/<\s*\/\s*Frame\s*>/gi, '</div>');
+      s = s.replace(/```[a-zA-Z0-9]*\n([\s\S]*?)```/g, (match, code) => {
+        if(/<\s*div[^>]*class=["']frame["'][^>]*>/i.test(code)){
+          return code.trim();
+        }
+        if(/<\s*img\s+[^>]*src=/i.test(code)){
+          const imgs = Array.from(code.matchAll(/<\s*img[^>]*>/gi)).map(m=>m[0]);
+          if(imgs.length){
+            return imgs.map(tag=>`<div class=\"frame\">${tag}</div>`).join('\n');
+          }
+        }
+        if(/<\s*(iframe|video|figure|table|section|article)[\s>]/i.test(code)){
+          return code.trim();
+        }
+        return match;
+      });
+      // Render markdown to HTML using marked, which now allows HTML
+      contentEl.innerHTML = `<div id="markdownContainer" style="max-width:840px;margin:0 auto">${marked.parse(s)}</div>`;
+      // Ensure iframes inside markdown render full width and with default height
+      document.querySelectorAll('#markdownContainer iframe').forEach(iframe => {
+        iframe.style.width = '100%';
+        iframe.style.minHeight = '600px';
+        iframe.style.border = '1px solid #ddd';
+        iframe.style.overflow = 'auto';
+      });
+      // Ensure headings have predictable IDs for TOC linking
+      contentEl.querySelectorAll('h1,h2,h3').forEach(h=>{
+        const id = slug(h.textContent || h.innerText);
+        h.id = id;
+      });
+      // Re-run math renderers for dynamically injected content
+      try{
+        if(window.renderMathInElement){
+          window.renderMathInElement(contentEl, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '$', right: '$', display: false },
+              { left: '\\(', right: '\\)', display: false },
+              { left: '\\[', right: '\\]', display: true }
+            ]
+          });
+        }
+        if(window.MathJax && MathJax.typesetPromise){
+          MathJax.typesetPromise([contentEl]).catch(()=>{});
+        }
+      }catch(_){}
+      document.querySelectorAll('pre code').forEach(block=>hljs.highlightElement(block));
+      // Headings for TOC
+      const tokens = marked.lexer(s);
+      const headings = tokens.filter(t=>t.type==='heading' && t.depth<=2).map(h=>({text:h.text, depth:h.depth}));
+      const fileHeading = file ? [{ text: file.name.replace(/\.(md|tex)$/i,'') , depth: 2 }] : [];
+      renderTOC([...fileHeading, ...headings]);
+      if(toggleRawBtn) toggleRawBtn.textContent = 'View as Markdown';
+      // deep link to heading if present in URL
+      const hash = decodeURIComponent(location.hash.slice(1));
+      if(hash){
+        if(hash.startsWith(encodeURIComponent(path)+':')){
+          const parts = hash.split(':');
+          const h = parts[1];
+          const el = document.getElementById(h);
+          if(el) setTimeout(()=>el.scrollIntoView({behavior:'smooth',block:'center'}),200);
+        }
+      }
+      // update history
+      history.replaceState(null,'',`#${encodeURIComponent(path)}`);
+      updatePrevNextLinks(path);
+      const footerGitLink = document.getElementById('footerGitLink');
+      if (footerGitLink) {
+        footerGitLink.href = `https://github.com/syia-ai/siya-public-documentation`;
+      }
+      return;
+    }
+    // Fallback to original fetchMarkdown for .tex/.pdf/etc
     const {html, headings} = await fetchMarkdown(path);
     // insert HTML and ensure headings have predictable IDs for TOC linking
     // marked already sets header ids, but ensure they match our slug
     const doc = document.createElement('div');
     doc.innerHTML = html;
-    const file = files.find(f=>f.path===path);
     // rewrite h1-h3 ids
     doc.querySelectorAll('h1,h2,h3').forEach(h=>{
       const id = slug(h.textContent || h.innerText);
@@ -546,7 +827,8 @@ async function openDoc(path){
       }catch(_){}
       document.querySelectorAll('pre code').forEach(block=>hljs.highlightElement(block));
       // ensure our prepended H2 is also shown in TOC as first item
-      const fileHeading = file ? [{ text: file.name.replace(/\.(md|tex)$/i,'') , depth: 2 }] : [];
+      const f = files.find(f=>f.path===path);
+      const fileHeading = f ? [{ text: f.name.replace(/\.(md|tex)$/i,'') , depth: 2 }] : [];
       renderTOC([...fileHeading, ...headings]);
       if(toggleRawBtn) toggleRawBtn.textContent = 'View as Markdown';
     }
@@ -562,31 +844,104 @@ async function openDoc(path){
     }
     // update history
     history.replaceState(null,'',`#${encodeURIComponent(path)}`);
+    updatePrevNextLinks(path);
+    const footerGitLink = document.getElementById('footerGitLink');
+    if (footerGitLink) {
+      footerGitLink.href = `https://github.com/syia-ai/siya-public-documentation`;
+    }
   }catch(e){ contentEl.innerHTML = `<div style="color:#ef4444">Error loading document: ${e.message}</div>`; }
+}
+
+// --- Recommendation and Search UI helpers ---
+function getRandomRecommendations() {
+  const mdFiles = files.filter(f =>
+    f.name.toLowerCase().endsWith('.md') &&
+    f.name.toLowerCase() !== 'readme.md'
+  );
+  const shuffled = mdFiles.sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, 3);
+}
+
+function showResults(list, isRecommendation = false) {
+  const container = document.getElementById('searchResults');
+  container.innerHTML = '';
+
+  if (isRecommendation) {
+    const label = document.createElement('div');
+    label.textContent = 'Recent searches';
+    label.style.fontSize = '13px';
+    label.style.fontWeight = '600';
+    label.style.padding = '6px 12px';
+    label.style.color = '#555';
+    container.appendChild(label);
+  }
+
+  if (!list.length) {
+    container.innerHTML += '<div style="padding:8px 12px;color:#888">No match</div>';
+    return;
+  }
+
+  list.forEach(f => {
+    const item = document.createElement('div');
+    item.style.padding = '8px 12px';
+    item.style.cursor = 'pointer';
+    item.style.fontSize = '14px';
+    item.style.display = 'flex';
+    item.style.flexDirection = 'column';
+    item.style.borderBottom = '1px solid #f0f0f0';
+
+    const pathDiv = document.createElement('div');
+    pathDiv.textContent = f.path.replace(/\.md$/i, '');
+    pathDiv.style.fontSize = '12px';
+    pathDiv.style.color = '#6b7280';
+
+    const title = document.createElement('div');
+    title.textContent = f.name.replace(/\.md$/i, '');
+    title.style.fontSize = '15px';
+    title.style.color = '#111';
+    title.style.fontWeight = '500';
+    title.style.marginTop = '2px';
+
+    item.appendChild(pathDiv);
+    item.appendChild(title);
+
+    item.addEventListener('mouseover', () => {
+      item.style.background = '#f3f4f6';
+    });
+    item.addEventListener('mouseout', () => {
+      item.style.background = '';
+    });
+    item.addEventListener('click', async (e) => {
+      e.preventDefault();
+      try { closeSearchModal(); } catch(_) {}
+      await openDoc(f.path);
+      const el = navList.querySelector(`a[data-path='${f.path}']`);
+      if (el) {
+        navList.querySelectorAll('a').forEach(x => x.classList.remove('active'));
+        el.classList.add('active');
+      }
+    });
+
+    container.appendChild(item);
+  });
 }
 
 // Search: across filenames & headings (lazy headings loaded)
 let searchTimer = null;
-quickSearch.addEventListener('input', ()=>{
-  clearTimeout(searchTimer);
-  searchTimer = setTimeout(async ()=>{
-    const q = quickSearch.value.trim().toLowerCase();
-    if(!q){ renderNav(files); return; }
-    // simple filter by filename
-    const byName = files.filter(f=>niceTitle(f.name).toLowerCase().includes(q));
-    // search headings: ensure headings are loaded for each file lazily
-    const byHeading = [];
-    await Promise.all(files.map(async f=>{
-      const cached = cache[f.path];
-      if(cached && cached.headings){
-        if(cached.headings.some(h=>h.text.toLowerCase().includes(q))) byHeading.push(f);
-      } else {
-        try{ const c = await fetchMarkdown(f.path); if(c.headings.some(h=>h.text.toLowerCase().includes(q))) byHeading.push(f); }catch(e){}
-      }
-    }));
-    const combined = [...new Map([...byName,...byHeading].map(i=>[i.path,i])).values()];
-    renderNav(combined);
-  },300);
+quickSearch.addEventListener('input', function () {
+  const query = this.value.trim().toLowerCase();
+
+  if (!query) {
+    showResults(getRandomRecommendations(), true);
+    return;
+  }
+
+  const results = files.filter(f =>
+    f.name.toLowerCase().endsWith('.md') &&
+    f.name.toLowerCase() !== 'readme.md' &&
+    f.name.toLowerCase().includes(query)
+  );
+  showResults(results);
 });
 
 // also open modal when clicking the header search box
@@ -597,13 +952,15 @@ if(quickSearch){
     // mirror the current value
     modalSearch.value = quickSearch.value;
     modalSearch.dispatchEvent(new Event('input'));
+    // Show recommended files when search opens
+    showResults(getRandomRecommendations(), true);
   });
 }
 
 // Unified search used by both header input and modal
 async function searchFiles(query){
   const q = query.trim().toLowerCase();
-  if(!q) return [];
+  if(!q) return recommendedFiles;
   const byName = files.filter(f=>niceTitle(f.name.replace(/\.(md|tex|pdf)$/i,'')).toLowerCase().includes(q));
   const byHeading = [];
   await Promise.all(files.map(async f=>{
@@ -623,6 +980,8 @@ async function searchFiles(query){
 function openSearchModal(){
   searchModal.removeAttribute('hidden');
   setTimeout(()=>modalSearch.focus(), 0);
+  // Show recommended files when modal opens
+  showResults(getRandomRecommendations(), true);
 }
 function closeSearchModal(){
   searchModal.setAttribute('hidden','');
@@ -636,19 +995,23 @@ document.addEventListener('keydown', (e)=>{
   }
 });
 searchModal.addEventListener('click', (e)=>{ if(e.target===searchModal) closeSearchModal(); });
-modalSearch.addEventListener('input', async ()=>{
-  const results = await searchFiles(modalSearch.value || '');
-  if(results.length===0){ searchResults.innerHTML = '<div style="padding:8px;color:#9aa4b2">No matches</div>'; return; }
-  searchResults.innerHTML = results.map(r=>`<a href="#" data-path="${r.path}" style="display:block;padding:8px 10px;border-radius:8px;color:inherit;text-decoration:none">${niceTitle(r.name.replace(/\.(md|tex|pdf)$/i,''))}<div style="font-size:12px;color:#6b7280">${r.path}</div></a>`).join('');
-  searchResults.querySelectorAll('a').forEach(a=>a.addEventListener('click', async e=>{
-    e.preventDefault();
-    const path = a.dataset.path;
-    closeSearchModal();
-    await openDoc(path);
-    // mark active in nav
-    const el = navList.querySelector(`a[data-path='${path}']`);
-    if(el){ navList.querySelectorAll('a').forEach(x=>x.classList.remove('active')); el.classList.add('active'); }
-  }));
+
+// (old showResults function replaced above)
+
+modalSearch.addEventListener('input', function () {
+  const query = this.value.trim().toLowerCase();
+
+  if (!query) {
+    showResults(getRandomRecommendations(), true);
+    return;
+  }
+
+  const results = files.filter(f =>
+    f.name.toLowerCase().endsWith('.md') &&
+    f.name.toLowerCase() !== 'readme.md' &&
+    f.name.toLowerCase().includes(query)
+  );
+  showResults(results);
 });
 
 // Theme toggle (avoid naming collision with element id -> use a different JS variable name)
@@ -702,6 +1065,7 @@ if(copyMdBtn){ copyMdBtn.addEventListener('click', copyCurrentMarkdown); }
 if(toggleRawBtn){ toggleRawBtn.addEventListener('click', toggleRawView); }
 
 // Boot
+// Remove README.md from files globally after fetching
 (async function bootstrap(){
   try{
     // initialize theme from storage or system preference
@@ -715,8 +1079,11 @@ if(toggleRawBtn){ toggleRawBtn.addEventListener('click', toggleRawView); }
     }catch(e){}
     await detectBranch();
     tree = await buildTree("");
-    // files already filled in buildTree; ensure alphabetical
-    files.sort((a,b)=>a.name.localeCompare(b.name));
+    // files already filled in buildTree; keep original order from GitHub
+    // Remove README.md from files globally for navigation, search, and recommendations
+    files = files.filter(f => f.name.toLowerCase() !== 'readme.md');
+    // Set recommendedFiles to first 3 files for default suggestions
+    recommendedFiles = files.slice(0, 3);
     renderNavFromTree();
     // auto open README if present, else first file
     const readme = files.find(f=>/readme\.md$/i.test(f.name));
@@ -744,3 +1111,4 @@ if(toggleRawBtn){ toggleRawBtn.addEventListener('click', toggleRawView); }
 </script>
 </body>
 </html>
+
