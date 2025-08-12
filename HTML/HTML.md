@@ -16,6 +16,4 @@
 
 
 ### Logistics Dashboard
-<iframe src="https://mcp-testing-airflow.s3.ap-south-1.amazonaws.com/logistics_dashboard.html" 
-        width="100%" height="100%" style="border:none;">
-</iframe>
+<iframe src="https://mcp-testing-airflow.s3.ap-south-1.amazonaws.com/logistics_dashboard.html" ></iframe>
