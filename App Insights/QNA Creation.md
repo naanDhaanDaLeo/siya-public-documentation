@@ -1,4 +1,4 @@
-# 📄 QA README
+# 📄 QNA README
 
 This README describes a multi-step QNA (app insight)Creation task involving MongoDB operations, HTML dashboard creation, Python-AIRFLOW DAG conversion, S3 uploads, and metadata updates.
 
