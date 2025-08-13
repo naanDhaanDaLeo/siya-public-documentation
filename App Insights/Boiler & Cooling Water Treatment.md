@@ -55,22 +55,22 @@ flowchart LR
     L --> O
     M --> P
     
-    style A fill:#e3f2fd
-    style B fill:#e3f2fd
-    style C fill:#e3f2fd
-    style D fill:#e3f2fd
-    style E fill:#f3e5f5
-    style F fill:#f3e5f5
-    style G fill:#f3e5f5
-    style H fill:#e8f5e8
-    style I fill:#e8f5e8
-    style J fill:#e8f5e8
-    style K fill:#fff3e0
-    style L fill:#fff3e0
-    style M fill:#fff3e0
-    style N fill:#ffebee
-    style O fill:#ffebee
-    style P fill:#ffebee
+    style A fill:#e3f2fd,color:#000000,font-weight:bold
+    style B fill:#e3f2fd,color:#000000,font-weight:bold
+    style C fill:#e3f2fd,color:#000000,font-weight:bold
+    style D fill:#e3f2fd,color:#000000,font-weight:bold
+    style E fill:#f3e5f5,color:#000000,font-weight:bold
+    style F fill:#f3e5f5,color:#000000,font-weight:bold
+    style G fill:#f3e5f5,color:#000000,font-weight:bold
+    style H fill:#e8f5e8,color:#000000,font-weight:bold
+    style I fill:#e8f5e8,color:#000000,font-weight:bold
+    style J fill:#e8f5e8,color:#000000,font-weight:bold
+    style K fill:#fff3e0,color:#000000,font-weight:bold
+    style L fill:#fff3e0,color:#000000,font-weight:bold
+    style M fill:#fff3e0,color:#000000,font-weight:bold
+    style N fill:#ffebee,color:#000000,font-weight:bold
+    style O fill:#ffebee,color:#000000,font-weight:bold
+    style P fill:#ffebee,color:#000000,font-weight:bold
 ```
 
 ## Executive Summary
