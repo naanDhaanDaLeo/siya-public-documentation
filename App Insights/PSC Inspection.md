@@ -151,6 +151,3 @@ collection.update_one(query, update, upsert=True)
 - **Operational Insights**: Detailed defect analysis for fleet managers
 - **Performance Metrics**: KPIs for inspection success rates and response times
 
----
-
-*The PSC Inspection Dashboard represents a sophisticated integration of internal ERP systems with external regulatory data sources, providing comprehensive visibility into vessel compliance status and inspection management.*
