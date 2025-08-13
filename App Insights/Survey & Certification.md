@@ -39,89 +39,86 @@ The **Survey and Certification module** represents the **ultimate solution** for
 
 ## **System Architecture Flow**
 
-```mermaid
-flowchart LR
-    subgraph "DATA SOURCES"
-        A[Classification Societies<br/>ABS • BV • CCS • DNV<br/>IRS • KR • LR • NK • RINA]
-        B[ERP Systems<br/>Internal Data]
-        C[S3 Storage<br/>Documents & Reports]
-        D[External APIs<br/>Real-time Feeds]
-    end
-    
-    subgraph "DATA PROCESSING"
-        E[API Data Retrieval<br/>& Authentication]
-        F[Data Restructuring<br/>& Validation]
-        G[Database Storage<br/>MongoDB Collections]
-    end
-    
-    subgraph "LOGIC ENGINE"
-        H[Status Analysis<br/>90-Day Logic]
-        I[Panama Flag<br/>Exemptions]
-        J[Compliance<br/>Calculations]
-    end
-    
-    subgraph "USER INTERFACE"
-        K[Interactive<br/>Dashboards]
-        L[Gantt Charts<br/>& KPIs]
-        M[Mobile<br/>Responsive]
-    end
-    
-    subgraph "NOTIFICATIONS"
-        N[Survey Status<br/>Emails (1st & 15th)]
-        O[CoC Alerts<br/>(15-Day Warning)]
-        P[TSI Reports<br/>& Summaries]
-    end
-    
-    subgraph "END USERS"
-        Q[Technical<br/>Superintendents]
-        R[Fleet<br/>Managers]
-        S[Compliance<br/>Teams]
-    end
-    
-    A --> E
-    B --> E
-    C --> E
-    D --> E
-    
-    E --> F
-    F --> G
-    
-    G --> H
-    G --> I
-    G --> J
-    
-    H --> K
-    I --> L
-    J --> M
-    
-    K --> N
-    L --> O
-    M --> P
-    
-    N --> Q
-    O --> R
-    P --> S
-    
-    style A fill:#e3f2fd,color:#000000,font-weight:bold
-    style B fill:#e3f2fd,color:#000000,font-weight:bold
-    style C fill:#e3f2fd,color:#000000,font-weight:bold
-    style D fill:#e3f2fd,color:#000000,font-weight:bold
-    style E fill:#f3e5f5,color:#000000,font-weight:bold
-    style F fill:#f3e5f5,color:#000000,font-weight:bold
-    style G fill:#f3e5f5,color:#000000,font-weight:bold
-    style H fill:#e8f5e8,color:#000000,font-weight:bold
-    style I fill:#e8f5e8,color:#000000,font-weight:bold
-    style J fill:#e8f5e8,color:#000000,font-weight:bold
-    style K fill:#fff3e0,color:#000000,font-weight:bold
-    style L fill:#fff3e0,color:#000000,font-weight:bold
-    style M fill:#fff3e0,color:#000000,font-weight:bold
-    style N fill:#ffebee,color:#000000,font-weight:bold
-    style O fill:#ffebee,color:#000000,font-weight:bold
-    style P fill:#ffebee,color:#000000,font-weight:bold
-    style Q fill:#f0f4c3,color:#000000,font-weight:bold
-    style R fill:#f0f4c3,color:#000000,font-weight:bold
-    style S fill:#f0f4c3,color:#000000,font-weight:bold
-```
+<div align="center">
+
+### **STEP 1: API DATA RETRIEVAL**
+> **Classification Society APIs Integration**
+> 
+> ABS • BV • CCS • DNV • IRS • KR • LR • NK • RINA
+> 
+> Real-time data extraction from official portals
+> 
+> Automated authentication and session management
+
+⬇️
+
+### **STEP 2: DATA RESTRUCTURING & STORAGE**
+> **Database Storage** | **S3 Report Storage**
+> 
+> MongoDB Collections | Document Management
+> 
+> Normalized data structures | PDF/Report archiving
+> 
+> Cross-reference validation | Version control system
+
+⬇️
+
+### **STEP 3: LOGIC IMPLEMENTATION & ANALYSIS**
+> **Advanced Due Status Logic**
+> 
+> 90-day early warning system • Window period calculations
+> 
+> Panama flag exemption rules • Multi-class harmonization
+> 
+> Overdue/In Order classifications • Priority-based sorting
+
+⬇️
+
+### **STEP 4: UI VISUALIZATION & DASHBOARDS**
+> **Interactive Dashboards**
+> 
+> Real-time KPI monitoring • Gantt chart timelines
+> 
+> Executive summary views • Drill-down capabilities
+> 
+> Multi-vessel fleet overview • Mobile-responsive design
+
+⬇️
+
+<table align="center" width="100%">
+<tr>
+<td width="50%" align="center" valign="top">
+
+### **STEP 5: SURVEY STATUS EMAIL NOTIFICATIONS**
+> **Bi-Monthly Scheduled Delivery**
+> 
+> 1st of each month
+> 
+> 15th of each month
+> 
+> TSI survey summaries
+> 
+> Compliance status reports
+
+</td>
+<td width="50%" align="center" valign="top">
+
+### **STEP 6: CoC & DISPENSATION ALERT SYSTEM**
+> **15-Day Advanced Warning**
+> 
+> CoC due date monitoring
+> 
+> Dispensation expiry alerts
+> 
+> Proactive stakeholder notice
+> 
+> Escalation protocols
+
+</td>
+</tr>
+</table>
+
+</div>
 
 ---
 
