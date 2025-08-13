@@ -43,45 +43,45 @@ The **Survey and Certification module** represents the **ultimate solution** for
 
 ### **STEP 1: API DATA RETRIEVAL**
 > **Classification Society APIs Integration**
-> - ABS • BV • CCS • DNV • IRS • KR • LR • NK • RINA
-> - Real-time data extraction from official portals
-> - Automated authentication and session management
+ABS • BV • CCS • DNV • IRS • KR • LR • NK • RINA
+Real-time data extraction from official portals
+Automated authentication and session management
 
 ⬇️
 
 ### **STEP 2: DATA RESTRUCTURING & STORAGE**
 > **Database Storage** | **S3 Report Storage**
-> - MongoDB Collections | Document Management
-> - Normalized data structures | PDF/Report archiving
-> - Cross-reference validation | Version control system
+MongoDB Collections | Document Management
+Normalized data structures | PDF/Report archiving
+Cross-reference validation | Version control system
 
 ⬇️
 
 ### **STEP 3: LOGIC IMPLEMENTATION & ANALYSIS**
 > **Advanced Due Status Logic**
-> - 90-day early warning system • Window period calculations
-> - Panama flag exemption rules • Multi-class harmonization
-> - Overdue/In Order classifications • Priority-based sorting
+90-day early warning system • Window period calculations
+Panama flag exemption rules • Multi-class harmonization
+Overdue/In Order classifications • Priority-based sorting
 
 ⬇️
 
 ### **STEP 4: UI VISUALIZATION & DASHBOARDS**
 > **Interactive Dashboards**
-> - Real-time KPI monitoring • Gantt chart timelines
-> - Executive summary views • Drill-down capabilities
-> - Multi-vessel fleet overview • Mobile-responsive design
+Real-time KPI monitoring • Gantt chart timelines
+Executive summary views • Drill-down capabilities
+Multi-vessel fleet overview • Mobile-responsive design
 
 ⬇️
 
 ### **STEP 5: SURVEY STATUS EMAIL NOTIFICATIONS**
 > **Bi-Monthly Scheduled Delivery**
-> - 1st of each month • TSI survey summaries
-> - 15th of each month • Compliance status reports
+1st of each month • TSI survey summaries
+15th of each month • Compliance status reports
 
 ### **STEP 6: CoC & DISPENSATION ALERT SYSTEM**
 > **15-Day Advanced Warning**
-> - CoC due date monitoring • Proactive stakeholder notice
-> - Dispensation expiry alerts • Escalation protocols
+CoC due date monitoring • Proactive stakeholder notice
+Dispensation expiry alerts • Escalation protocols
 
 </div>
 
