@@ -150,13 +150,7 @@ def calculate_rating(attained_cii, boundaries):
 #### EEOI Dashboard Example
 
 **Voyage EEOI Performance Analysis**
-<iframe 
-    src="https://github.com/user-attachments/assets/feab15b5-fba9-4991-bbcf-101bdfae0709"
-    width="1210"
-    height="478"
-    title="EEOI per Voyage"
-    style="border:none;">
-</iframe>
+![EEOI per Voyage](https://github.com/user-attachments/assets/feab15b5-fba9-4991-bbcf-101bdfae0709)
 *Interactive bar chart displaying EEOI values for the last six loaded voyages, enabling operators to identify efficiency trends and optimize future voyage planning*
 
 ### CII Dashboard Delivers:
@@ -169,35 +163,17 @@ def calculate_rating(attained_cii, boundaries):
 #### CII Dashboard Examples
 
 **Year-to-Date CII Rating Tracking**
-<iframe 
-    src="https://github.com/user-attachments/assets/d878cff1-4d7a-464d-a4d5-45183e54d150"
-    width="1210"
-    height="429"
-    title="YTD Live CII Rating"
-    style="border:none;">
-</iframe>
+![YTD Live CII Rating](https://github.com/user-attachments/assets/d878cff1-4d7a-464d-a4d5-45183e54d150)
 
 *Real-time CII performance monitoring showing attained CII values against rating boundaries (A-E) throughout the year*
 
 **Multi-Year CII Projections**
-<iframe 
-    src="https://github.com/user-attachments/assets/73ba4897-d60b-4e7e-a1c5-a14df9b4ad8a"
-    width="1210"
-    height="429"
-    title="CII Projection using IMODCS verified Data"
-    style="border:none;">
-</iframe>
+![CII Projection using IMODCS verified Data](https://github.com/user-attachments/assets/73ba4897-d60b-4e7e-a1c5-a14df9b4ad8a)
 
 *Long-term CII forecasting displaying projected performance against tightening regulatory requirements through 2027*
 
 **Vessel Operation Profile Analysis**
-<iframe 
-    src="https://github.com/user-attachments/assets/c2d528a7-bb30-4766-939c-802d309abeef"
-    width="1219"
-    height="637"
-    title="Vessel Activity Profile"
-    style="border:none;">
-</iframe>
+![Vessel Activity Profile](https://github.com/user-attachments/assets/c2d528a7-bb30-4766-939c-802d309abeef)
 
 *Live Year-to-Date comprehensive analysis of vessel operations directly contributing to changes in CII calculations*
 
