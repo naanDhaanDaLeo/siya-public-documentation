@@ -147,12 +147,35 @@ def calculate_rating(attained_cii, boundaries):
 - **Fuel efficiency insights** by voyage and fuel type
 - **Operational recommendations** for efficiency improvements
 
+#### EEOI Dashboard Example
+
+**Voyage EEOI Performance Analysis**
+<img width="1210" height="478" alt="EEOI per Voyage" src="https://github.com/user-attachments/assets/feab15b5-fba9-4991-bbcf-101bdfae0709" />
+*Interactive bar chart displaying EEOI values for the last six loaded voyages, enabling operators to identify efficiency trends and optimize future voyage planning*
+
 ### CII Dashboard Delivers:
 - **Current year CII rating** (A through E classification)
 - **Multi-year projections** (2024-2027) based on current performance
 - **Required vs. Attained CII comparison**
 - **Boundary analysis** showing proximity to rating thresholds
 - **Vessel operating profile** with efficiency trends
+
+#### CII Dashboard Examples
+
+**Year-to-Date CII Rating Tracking**
+<img width="1210" height="429" alt="YTD Live CII Rating" src="https://github.com/user-attachments/assets/d878cff1-4d7a-464d-a4d5-45183e54d150" />
+
+*Real-time CII performance monitoring showing attained CII values against rating boundaries (A-E) throughout the year*
+
+**Multi-Year CII Projections**
+<img width="1210" height="429" alt="CII Projection using IMODCS verified Data" src="https://github.com/user-attachments/assets/73ba4897-d60b-4e7e-a1c5-a14df9b4ad8a" />
+
+*Long-term CII forecasting displaying projected performance against tightening regulatory requirements through 2027*
+
+**Vessel Operation Profile Analysis**
+<img width="1219" height="637" alt="Vessel Activity Profile" src="https://github.com/user-attachments/assets/c2d528a7-bb30-4766-939c-802d309abeef" />
+
+*Live Year-to-Date comprehensive analysis of vessel operations directly contributing to changes in CII calculations*
 
 ## Benefits
 
